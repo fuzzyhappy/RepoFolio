@@ -3,11 +3,11 @@ import './MainApp.css'
 
 function Card(props) {
     return (
-        <div class="card">
-            <span class="title">{props.project["name"]}</span>
-            <span class="subtitle">{props.project["created_at"]}</span>
+        <div className="card">
+            <span className="title">{props.project["name"]}</span>
+            <span className="subtitle">{props.project["created_at"]}</span>
             <p>{props.project["description"]}</p>
-            <div class="footer">
+            <div className="footer">
                 <a href="https://github.com">Repository Link</a>
             </div>
         </div>
@@ -24,10 +24,10 @@ export default class MainApp extends React.Component {
         const repoData = this.state.repoData;
         return (
             <div>
-                <div class="header">
-                    <div class="pfp"></div>
+                <div className="header">
+                    <div className="pfp"></div>
                     <h1>Username</h1>
-                    <ul class="navbar">
+                    <ul className="navbar">
                         <li><a href="https://google.com">About</a></li>
                         <li><a href="https://google.com">Projects</a></li>
                     </ul>
@@ -35,7 +35,7 @@ export default class MainApp extends React.Component {
                 </div>
                 <div className="container">
                     {repoData.map((project, index) =>
-                        <Card project={project} idx={index} />
+                        <Card project={project} key={index} />
                     )}
                 </div>
             </div>

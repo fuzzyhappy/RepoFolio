@@ -1,7 +1,6 @@
 /* eslint no-undef: 0 */ // --> OFF
 import React from 'react';
-import './App.css';
-import GetUsernamePopup from './GetUsernamePopup';
+import LandingPage from './LandingPage';
 import MainApp from './MainApp'
 
 class App extends React.Component {   
@@ -26,7 +25,7 @@ class App extends React.Component {
         return (
             <div>
                 {!unameSubmitted
-                    ? <GetUsernamePopup onUsernameSubmit={this.unameSubmitSuccess}/>
+                    ? <LandingPage onUsernameSubmit={this.unameSubmitSuccess}/>
                     : <MainApp userData={this.state.userData} repoData={this.state.repoData}/>
                 }
             </div>

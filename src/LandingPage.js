@@ -1,7 +1,8 @@
 import React from 'react';
+import './LandingPage.css'
 import { Octokit } from 'octokit';
 
-export default class GetUsernamePopup extends React.Component {
+export default class LandingPage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -13,7 +14,7 @@ export default class GetUsernamePopup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const octokit = new Octokit({auth: "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"});
+        const octokit = new Octokit();
         var userData;
         var repoData;
         octokit.request("/users/" + this.state.uname)
