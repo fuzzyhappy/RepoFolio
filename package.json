@@ -1,0 +1,30 @@
+{
+  "name": "repofolio",
+  "version": "1.0.0",
+  "description": "JavaScript application that creates a portfolio website based off your GitHub profile.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuzzyhappy/RepoFolio.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "octokit",
+    "GitHub",
+    "website"
+  ],
+  "author": "Evan Wang",
+  "license": "SEE LICENSE IN ACSL-LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/fuzzyhappy/RepoFolio/issues"
+  },
+  "homepage": "https://github.com/fuzzyhappy/RepoFolio#readme",
+  "dependencies": {
+    "@octokit/rest": "^18.12.0"
+  }
+}
