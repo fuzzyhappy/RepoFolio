@@ -1,3 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+/*
 const { Octokit } = require("@octokit/rest");
 const readline = require("readline");
 const util = require('util');
@@ -14,4 +24,4 @@ const getRepoData = async (uname) => { return await octokit.request("/users/" + 
 	var repoData = await getRepoData(uname);
 	repoData = repoData["data"]; // is a list of dictionaries, e.g. repoData[0]["name"]
 	rl.close();
-})()
+})()*/
