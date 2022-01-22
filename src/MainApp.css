@@ -75,6 +75,7 @@ textarea {
 }
 
 .footer {
+    display: flex;
     padding-block-start: 5px;
     padding-block-end: 7px;
     padding-inline: 5px;
@@ -110,5 +111,5 @@ textarea {
 }
 
 .hide-project-button {
-    right: 0;
+    margin-left: auto;
 }
