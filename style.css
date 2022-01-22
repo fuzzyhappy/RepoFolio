@@ -53,32 +53,31 @@ h2 {
 }
 
 p {
+    flex: 1;
     text-align: center;
 }
 
 .container {
-    max-width: 80vw;
+    margin-block: 20px;
+    width: max(16rem, 80vw);
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    flex-shrink: 1;
     justify-content: center;
-    align-items: center;
-    align-content: center;
 }
 
 .card {
     display: flex;
-    width: 16rem;
     flex-direction: column;
-    align-content: center;
-    margin-inline: 1rem;
-    margin-bottom: 1.5rem;
-    border: solid slateblue 2px;
-    border-radius: 0rem;
-    box-shadow: 1rem 1rem lavender;
-    padding: 10px;
-}
 
+    width: 16rem;
+    margin-inline: 1rem;
+    margin-bottom: 2rem;
+    padding: 10px;
+
+    border: solid slateblue 2px;
+    box-shadow: 1rem 1rem lavender;
+
+}
 
