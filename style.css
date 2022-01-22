@@ -12,11 +12,7 @@
 }
 
 .header {
-    position: fixed;
-    top: 0;
     width: 100%;
-    height: 5rem;
-    flex-shrink: 0;
     display: flex;
     align-items: center;
 }
@@ -24,6 +20,7 @@
 .navbar {
     background: lavender;
     border-radius: 20px;
+    padding: 5px;
 }
 
 body {
@@ -32,8 +29,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    border: 1px solid black;
 }
 
 ul {
