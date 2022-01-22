@@ -18,8 +18,6 @@
 }
 
 .navbar {
-    background: lavender;
-    border-radius: 20px;
     padding: 5px;
 }
 
@@ -47,14 +45,39 @@ a {
 }
 
 
-h2 {
-    text-align: center;
+.title {
+    padding-block-start: 5px;
+    padding-block-end: 7px;
+    padding-inline: 5px;
+    background-color: slateblue;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
     word-break: break-word;
 }
 
+.subtitle {
+    padding-block: 5px;
+    padding-inline: 5px;
+    color: slateblue;
+    font-weight: 100;
+}
+
 p {
+    padding: 5px;
     flex: 1;
-    text-align: center;
+}
+
+.footer {
+    padding-block-start: 5px;
+    padding-block-end: 7px;
+    padding-inline: 5px;
+    background-color: slateblue;
+}
+
+.footer > a {
+    
+    color: white;
 }
 
 .container {
@@ -70,11 +93,11 @@ p {
 .card {
     display: flex;
     flex-direction: column;
+    max-height: 25em;
 
     width: 16rem;
     margin-inline: 1rem;
-    margin-bottom: 2rem;
-    padding: 10px;
+    margin-bottom: 3rem;
 
     border: solid slateblue 2px;
     box-shadow: 1rem 1rem lavender;
