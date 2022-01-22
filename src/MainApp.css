@@ -64,9 +64,14 @@ a {
     font-weight: 100;
 }
 
-p {
+p, textarea {
     padding: 5px;
     flex: 1;
+}
+
+textarea {
+    resize: none;
+    border: 0;
 }
 
 .footer {
@@ -104,3 +109,6 @@ p {
 
 }
 
+.hide-project-button {
+    right: 0;
+}
