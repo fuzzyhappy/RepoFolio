@@ -7,13 +7,18 @@ import MainApp from './MainApp'
 class App extends React.Component {   
     constructor (props) {
         super(props);
-        this.state = {unameSubmitted: false, uname: ''};
+        this.state = {unameSubmitted: false, userData: [], repoData: []};
 
-        this.unameSubmitSuccess = this.unameSubmitSuccess.bind(this);
+        this.unameSubmitSuccess = this.unameSubmitSuccess.bind(this)
     }
 
-    unameSubmitSuccess() {
+    unameSubmitSuccess(recvUserData, recvRepoData) {
+        this.setState({userData: recvUserData});
+        this.setState({repoData: recvRepoData});
+        console.log(this.state.userData);
+        console.log(this.state.repoData);
         this.setState({unameSubmitted: true});
+        
     }
 
     render() {
@@ -22,7 +27,7 @@ class App extends React.Component {
             <div>
                 {!unameSubmitted
                     ? <GetUsernamePopup onUsernameSubmit={this.unameSubmitSuccess}/>
-                    : <MainApp />
+                    : <MainApp userData={this.state.userData} repoData={this.state.repoData}/>
                 }
             </div>
         );
