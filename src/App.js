@@ -1,31 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
-import { Octokit } from "octokit";
-const octokit = new Octokit();
+import {Octokit} from 'octokit';
 
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-      </div>
-    );
-  }
-}
-/*
-  Should:
-  - have a text box for username
-  - When user enters username, check if valid (i.e. GitHub API call made sense)
-    - if valid, load the main app
-    - if invalid, display some red text saying try again
-*/
 class GetUsernamePopup extends React.Component {
 
   constructor(props) {
@@ -39,6 +15,7 @@ class GetUsernamePopup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state.uname);
+    const octokit = new Octokit();
     octokit.request("/users/" + this.state.uname + "/repos").then(console.log);
   }
 
@@ -64,34 +41,12 @@ class GetUsernamePopup extends React.Component {
   }
 }
 
-class Card extends React.Component {
-
-}
-
-/*
-Initialize the whole main app by using GitHub repo information that should've been retrieved from the popup.
-Maybe add little loading spinny circle while the app is generating. 
-*/
-class MainApp extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {repoData: props.repoData};
-  }
-
-  render() {
-    return (
-      <div>
-        heelo
-      </div>
-    );
-  }
-}
-
-
 function App() {
   return (
-    <GetUsernamePopup />
+    <div>
+      <GetUsernamePopup />
+    </div>
+    
   );
 }
 

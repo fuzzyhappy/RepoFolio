@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "JavaScript application that creates a portfolio website based off your GitHub profile.",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fuzzyhappy/RepoFolio.git"
-  },
   "keywords": [
     "JavaScript",
     "HTML",
@@ -16,20 +12,10 @@
     "website"
   ],
   "author": "Evan Wang",
-  "contributors": [
-    "Daniel Xie"
-  ],
-  "license": "SEE LICENSE IN ACSL-LICENSE.txt",
-  "bugs": {
-    "url": "https://github.com/fuzzyhappy/RepoFolio/issues"
-  },
-  "homepage": "https://github.com/fuzzyhappy/RepoFolio#readme",
   "dependencies": {
-    "@octokit/rest": "^18.12.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "octokit": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -40,6 +26,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
