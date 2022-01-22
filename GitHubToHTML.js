@@ -3,25 +3,6 @@ const readline = require("readline");
 const util = require('util');
 const fs = require('fs');
 
-var html = `<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>RepoFolio</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-
-    <body>
-        <div class = "header">
-            <div class="pfp"></div>
-            <h1>Username</h1>
-            <ul class="navbar">
-                <li><a href="https://google.com">About</a></li>
-                <li><a href="https://google.com">Projects</a></li>
-            </ul>
-
-        </div>`;
 
 process.on('uncaughtException', function(err) {
     console.log(err.stack);
