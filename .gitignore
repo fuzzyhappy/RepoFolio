@@ -1,3 +1,6 @@
+# private auth
+token.txt
+
 # Logs
 logs
 *.log
