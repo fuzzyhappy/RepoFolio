@@ -18,7 +18,7 @@
     "GitHub",
     "website"
   ],
-  "author": "Evan Wang",
+  "author": ["Evan Wang", "Daniel Xie"],
   "license": "SEE LICENSE IN ACSL-LICENSE.txt",
   "bugs": {
     "url": "https://github.com/fuzzyhappy/RepoFolio/issues"
