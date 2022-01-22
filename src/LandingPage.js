@@ -13,12 +13,14 @@ export default class GetUsernamePopup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const octokit = new Octokit({ auth: "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" });
-        octokit.request("/users/" + this.state.uname + "/repos")
-            .then((res) => {
-                console.log(res["data"]);
-                this.props.onUsernameSubmit(true);  
-            })
+        const octokit = new Octokit({auth: "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"});
+        var userData;
+        var repoData;
+        octokit.request("/users/" + this.state.uname)
+            .then((res) => { userData = res["data"]; })
+            .then(() => { return octokit.request("/users/" + this.state.uname + "/repos"); })
+            .then((res) => { repoData = res["data"]; })
+            .then(() => { this.props.onUsernameSubmit(userData, repoData) })
             .catch(e => {
                 console.log("error!");
                 console.log(e);
