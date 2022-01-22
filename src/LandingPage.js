@@ -36,17 +36,25 @@ export default class LandingPage extends React.Component {
     render() {
         return (
             <div id="myModal" className="modal">
+                <div className="welcome">
+                    <span className="first">Welcome to</span>
+                    <span className="Logo">RepoFolio</span>
+                    <p className="Description">Ever feel bad for not having a portfolio website to show off on a job application? Me too! So I decided to make an webapp that generates them for you! Totally less effort than just designing a website for myself!</p>
+                </div>
+
+                <div className='divider'></div>
+
                 <div className="modal-content">
-                    <span className="close">&times;</span>
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Enter your GitHub username to continue:
-                            <input type="text" value={this.state.uname} onChange={this.handleChange} />
+                            Try it out by entering your username!
                         </label>
+                        <input type="text" value={this.state.uname} onChange={this.handleChange} />
                         <input type="submit" value="Submit" />
                     </form>
                     {!this.state.valid && <p className="usernameError">An error occured, please try again.</p>}
                 </div>
+
             </div>
         );
     }

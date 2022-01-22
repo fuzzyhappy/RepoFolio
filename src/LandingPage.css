@@ -1,20 +1,62 @@
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p {
+  color: darkslategray;
+}
+
+.welcome {
+  flex: 0;
+  display: flex;
+  flex-direction: column;
+  width: 24vw;
+}
+
+.first {
+  margin-bottom: 0px;
+  font-size: 40px;
+}
+
+.Logo {
+  margin-top: -10px;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.divider {
+  border-left: solid slateblue 2px;
+  height: 20vh;
+  margin-inline: 2vw;
+}
+
 .modal {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  justify-content: center;
+  flex: 0;
+  width: min(100vw, 60em);
+  flex-wrap: wrap;
+  min-height: 99vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+form {
+  width: 10vw;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 
+label {
+  font-size: 16px;
+}
+
+input {
+  margin-block-start: 5px;
+}
