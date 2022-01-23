@@ -17,7 +17,6 @@ class App extends React.Component {
         console.log(this.state.userData);
         console.log(this.state.repoData);
         this.setState({unameSubmitted: true});
-        
     }
 
     render() {
