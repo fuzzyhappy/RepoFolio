@@ -291,3 +291,10 @@ a:hover {
     width: 70vw;
     height: 7vh;
 }
+
+.footer-textarea {
+    margin-top: -5px;
+    max-height: 1.2em;
+    font-size: 18px;
+
+}

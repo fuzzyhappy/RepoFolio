@@ -1,6 +1,7 @@
 {
   "name": "repofolio",
   "version": "1.0.0",
+  "homepage": "https://fuzzyhappy.github.io/repofolio",
   "description": "JavaScript application that creates a portfolio website based off your GitHub profile.",
   "main": "index.js",
   "keywords": [
@@ -13,6 +14,7 @@
   ],
   "author": "Evan Wang",
   "dependencies": {
+    "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -23,9 +25,12 @@
     "react-icon": "^1.0.0",
     "react-icons": "^4.3.1",
     "react-scripts": "5.0.0",
+    "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
