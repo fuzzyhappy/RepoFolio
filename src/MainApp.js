@@ -108,8 +108,8 @@ export default class MainApp extends React.Component {
                         {editMode ? "Edit Mode" : "View Mode"}
                     </button>
                     <ul className="navbar">
-                        <li><a href="https://google.com">About</a></li>
-                        <li><a href="https://google.com">Projects</a></li>
+                        <li><a href="#about-section">About</a></li>
+                        <li><a href="#contact-section">Contact</a></li>
                     </ul>
                 </div>
                 <div className="container">
@@ -128,17 +128,15 @@ export default class MainApp extends React.Component {
                             key={project["id"]}
                             onUnhideProject={this.unhideProject}/>)}
                 </div>}
-                <div className="about">
+                <div className="about" id="about-section">
                     <div className="about-me">
-                        About Me
+                    <a id="about-section"></a>About Me
                     </div>
                     <BioEditor editable={editMode} userData={userData} updateUserField={this.updateUserField}/>
                 </div>
-                <div className="contact">
-
-                </div>
 
                 <div className="contact">
+                    <a id="contact-section"></a>
                     <ul>
                         <li><a href={userData["email"]}>Email</a></li>
                         <li><a href={("https://www.github.com/" + userData["login"])}>GitHub</a></li>
@@ -146,8 +144,6 @@ export default class MainApp extends React.Component {
                         <li><a href="https://www.youtube.com/watch?v=jBuKNkVFaMU">LinkedIn</a></li>
                     </ul>
                 </div>
-
-                <div className="contact"></div>
             </div>
         );
     }
