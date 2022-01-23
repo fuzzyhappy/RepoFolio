@@ -121,7 +121,7 @@ export default class MainApp extends React.Component {
                             onHideProject={this.hideProject}
                             updateProjectField={this.updateProjectField} />)}
                 </div>
-                {hiddenProjects.length > 0 && <div className="hidden container">
+                {hiddenProjects.length > 0 && editMode && <div className="hidden container">
                     {hiddenProjects.map((project, index) =>
                         <HiddenCard
                             project={project}

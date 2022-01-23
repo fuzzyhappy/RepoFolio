@@ -25,7 +25,6 @@ export default class HiddenCard extends React.Component {
                 <p>{description}</p>
                 <div className="footer">
                     <a href={project["html_url"]}>Repository Link</a>
-                    <button className="reveal-button" onClick={this.unhideThisProject}>Unhide</button>
                     <button className="card-button" onClick={this.unhideThisProject}>
                         <IconContext.Provider value={{ className: "eye-icon" }}>
                             <FaEye />
