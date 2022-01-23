@@ -3,27 +3,43 @@
 }
 
 .pfp {
-    background:#6e5494;
-    border: border#6e5494 2px;
-    border-radius: 50%;
-    height: 35px;
-    width: 35px;
+    background-color: white;
+    border: white solid 2px;
+    border-radius: 25%;
+    height: 30px;
+    width: 30px;
     margin: 10px;
+    margin-left: 2vw;
 }
 
 .header {
-    width: 100%;
+    background-color: black;
+    width: 100vw;
     display: flex;
     align-items: center;
+}
+#root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: white;
 }
 
 .navbar {
     padding: 5px;
+    margin-right: 2vw;
 }
 
 body {
+    padding: 0;
     margin: 0;
-    height: 99vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,16 +53,19 @@ ul {
 }
 
 li {
+    color: white;
     margin: 10px;
 }
 
 a {
+    color: white;
     text-decoration: none;
 }
 
 .title {
     padding: 10px;
-    color: black;
+    background-color: black;
+    color: white;
     font-weight: bold;
     font-size: 30px;
     word-break: break-word;
@@ -55,9 +74,9 @@ a {
 .subtitle {
     padding-block: 5px;
     padding-inline: 5px;
-    border-top: solid#6e5494 2px;
-    border-bottom: solid#6e5494 2px;
-    color:#6e5494;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    color:black;
     font-weight: 100;
 }
 
@@ -72,6 +91,7 @@ textarea {
 }
 
 .footer {
+    border-top: solid black 2px;
     display: flex;
     padding-block-start: 5px;
     padding-block-end: 7px;
@@ -82,8 +102,15 @@ textarea {
     color: black;
 }
 
+a:hover {
+    color: lavender;
+}
+
 .container {
-    margin-block: 40px;
+    margin-block: 10vh;
+    margin-bottom: 7vh;
+    margin-left: auto;
+    margin-right: auto;
     width: max(30rem, 90vw);
     flex-wrap: wrap;
     display: flex;
@@ -100,11 +127,42 @@ textarea {
     width: 16rem;
     margin-inline: 1rem;
     margin-bottom: 3rem;
-    
 
-    border: solid#6e5494 2px;
-    box-shadow: 1rem 1rem lavender;
+    border: solid black 2px;
+}
 
+.about {
+    margin-top: 1vh;
+    background-color: #e5e7eb;
+    flex: 2;
+    padding-block: 3em;
+    padding-inline: 2vw;
+}
+
+.about-me {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1vh;
+    margin-inline: 15vw;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 100;
+    color:rgb(68, 68, 68);
+    margin-inline: 15vw;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    width: 100vw;
+}
+
+.contact > ul {
+    margin-left: 0;
 }
 
 .hide-project-button {
