@@ -53,7 +53,8 @@ export default class MainApp extends React.Component {
                 var newProject = project;
                 newProject['refreshDecider'] = newProject["id"] + Date.now();
                 console.log(newProject["created_at"]);
-                return newProject;}),
+                return newProject;
+            }),
             hiddenProjects: [],
             editMode: true
         };
@@ -77,7 +78,7 @@ export default class MainApp extends React.Component {
                 return project;
             }
         })
-        this.setState({visibleProjects: newList});
+        this.setState({ visibleProjects: newList });
     }
 
     exportPage(e) {
@@ -100,21 +101,25 @@ export default class MainApp extends React.Component {
     }
 
     // by updating the refreshDecider of the whole visibleProjects, we force a refresh since .map assigns key based on refreshDecider
-    doPreviewMode() { 
+    doPreviewMode() {
         this.setState({ editMode: false });
-        this.setState({ visibleProjects: this.state.visibleProjects.map(project => {
-            var newProject = project;
-            newProject["refreshDecider"] = newProject["id"] + Date.now();
-            return newProject;
-        })});
+        this.setState({
+            visibleProjects: this.state.visibleProjects.map(project => {
+                var newProject = project;
+                newProject["refreshDecider"] = newProject["id"] + Date.now();
+                return newProject;
+            })
+        });
     }
-    doEditMode() { 
+    doEditMode() {
         this.setState({ editMode: true });
-        this.setState({ visibleProjects: this.state.visibleProjects.map(project => {
-            var newProject = project;
-            newProject["refreshDecider"] = newProject["id"] + Date.now();
-            return newProject;
-        })});
+        this.setState({
+            visibleProjects: this.state.visibleProjects.map(project => {
+                var newProject = project;
+                newProject["refreshDecider"] = newProject["id"] + Date.now();
+                return newProject;
+            })
+        });
     }
 
     render() {
@@ -138,10 +143,10 @@ export default class MainApp extends React.Component {
                         </IconContext.Provider>
                         <span>Export</span></button>
                     <button className="work-button" onClick={editMode ? this.doPreviewMode : this.doEditMode}>
-                    <IconContext.Provider value={{ className: "work-icon" }}>
+                        <IconContext.Provider value={{ className: "work-icon" }}>
                             <FaPencilRuler />
-                    </IconContext.Provider>
-                        {editMode ? "Edit Mode" : "View Mode"} 
+                        </IconContext.Provider>
+                        {editMode ? "Edit Mode" : "View Mode"}
                     </button>
                     <ul className="navbar">
                         <li><a href="https://google.com">About</a></li>
@@ -157,6 +162,28 @@ export default class MainApp extends React.Component {
                             onHideProject={this.hideProject}
                             updateField={this.updateField} />)}
                 </div>
+                <div class="about">
+                    <div class="about-me">
+                        About Me
+                    </div>
+                    <div class="text">
+                        lorem ipsum :)
+                    </div>
+                </div>
+                <div class="contact">
+
+                </div>
+
+                <div class="contact">
+                    <ul>
+                        <li><a href={userData["email"]}>Email</a></li>
+                        <li><a href={new String("https://www.github.com/" + userData["login"])}>GitHub</a></li>
+                        <li><a href={new String("https://www.twitter.com/" + userData["twitter_username"])}>Twitter</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=jBuKNkVFaMU">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <div class="contact"></div>
             </div>
         );
     }

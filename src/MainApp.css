@@ -9,21 +9,14 @@
     height: 30px;
     width: 30px;
     margin: 10px;
-    flex-shrink: 0;
-    margin-left: 2em;
+    margin-left: 2vw;
 }
 
 .header {
     background-color: black;
+    width: 100%;
     display: flex;
     align-items: center;
-}
-#root {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
 }
 
 h1 {
@@ -32,11 +25,15 @@ h1 {
 
 .navbar {
     padding: 5px;
-    margin-right: 2em;
+    margin-right: 2vw;
 }
 
 body {
+    height: 100vh;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
@@ -75,19 +72,12 @@ a {
 }
 
 p, textarea {
-    color: rgb(68, 68, 68);
     padding: 5px;
-    flex: 1 0 auto;
-    font-size: 18px;
-    margin-top: 0;
+    flex: 1;
 }
 
 textarea {
     resize: none;
-    border: 0;
-}
-
-button {
     border: 0;
 }
 
@@ -104,14 +94,12 @@ button {
 }
 
 a:hover {
-    text-decoration: underline;
+    color: lavender;
 }
 
 .container {
     margin-block: 10vh;
     margin-bottom: 7vh;
-    margin-left: auto;
-    margin-right: auto;
     width: max(30rem, 90vw);
     flex-wrap: wrap;
     display: flex;
@@ -177,17 +165,22 @@ a:hover {
 }
 
 .hide-project-button:hover {
-    background-color: lightgray;
+    background-color: lavender;
 }
-
 
 .hide-project-button:active {
-    background-color: darkgray;
+    background-color: #6e5494;
 }
 
+.hide-project-button:active > .eye-icon {
+    color: white;
+}
+
+
 .export-button {
-    margin-left: 1vw;
+    margin-inline: 15px;
     size: 1em;
+    border: solid #6e5494 2px;
     background-color: white;
     border-radius: 6px;
     padding-block: 5px;
@@ -195,44 +188,19 @@ a:hover {
 }
 
 .export-button:hover {
-    background-color: lightgray;
+    background-color: lavender;
 }
 
 .export-button:active {
-    background-color: darkgrey;
+    background-color: #6e5494;
 }
 
 .export-button:active > * {
-    color: black;
+    color: white;
 }
+
 
 .export-icon {
-    margin-right: 5px;
-    margin-bottom: -2px;
-}
-
-.work-button {
-    margin-left: .5vw;
-    size: 1em;
-    background-color: white;
-    border-radius: 6px;
-    padding-block: 5px;
-    padding-inline: 7px;
-}
-
-.work-button:hover {
-    background-color: lightgray;
-}
-
-.work-button:active {
-    background-color: darkgrey;
-}
-
-.work-button:active > * {
-    color: black;
-}
-
-.work-icon {
     margin-right: 5px;
     margin-bottom: -2px;
 }
