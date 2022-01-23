@@ -39,7 +39,7 @@ export default class LandingPage extends React.Component {
                 <div className="welcome">
                     <span className="first">Welcome to</span>
                     <span className="Logo">RepoFolio</span>
-                    <p className="Description">Ever feel bad for not having a portfolio website to show off on a job application? Me too! So I decided to make an webapp that generates them for you! Totally less effort than just designing a website for myself!</p>
+                    <p className="Description">Ever feel bad for not having a portfolio website to show off on a job application? Me too! So my friend, Dan, and I made a React app that does it for you!</p>
                 </div>
 
                 <div className='divider'></div>

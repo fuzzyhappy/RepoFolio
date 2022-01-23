@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainApp.css'
-import { FaEyeSlash, FaSave } from 'react-icons/fa';
+import { FaEyeSlash, FaSave, FaPencilRuler } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
 class Card extends React.Component {
@@ -100,7 +100,12 @@ export default class MainApp extends React.Component {
                         <FaSave />
                     </IconContext.Provider>
                         <span>Export</span></button>
-                    <button onClick={editMode ? this.doPreviewMode : this.doEditMode}>{editMode ? "Edit Mode" : "Preview Mode"}</button>
+                    <button class="work-button" onClick={editMode ? this.doPreviewMode : this.doEditMode}>
+                    <IconContext.Provider value={{ className: "work-icon" }}>
+                            <FaPencilRuler />
+                    </IconContext.Provider>
+                        {editMode ? "Edit Mode" : "View Mode"} 
+                    </button>
                     <ul className="navbar">
                         <li><a href="https://google.com">About</a></li>
                         <li><a href="https://google.com">Projects</a></li>

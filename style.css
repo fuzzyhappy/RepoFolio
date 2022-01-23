@@ -153,3 +153,54 @@ a:hover {
 .contact > ul {
     margin-left: 0;
 }
+
+.hide-project-button {
+    margin-inline: 2px;
+    margin-left: auto;
+    padding: auto;
+    padding-top: 5px;
+    border: none;
+    background: none;
+    border-radius: 2px;
+}
+
+.hide-project-button:hover {
+    background-color: lavender;
+}
+
+.hide-project-button:active {
+    background-color: #6e5494;
+}
+
+.hide-project-button:active > .eye-icon {
+    color: white;
+}
+
+
+.export-button {
+    margin-inline: 15px;
+    size: 1em;
+    border: solid #6e5494 2px;
+    background-color: white;
+    border-radius: 6px;
+    padding-block: 5px;
+    padding-inline: 7px;
+}
+
+.export-button:hover {
+    background-color: lavender;
+}
+
+.export-button:active {
+    background-color: #6e5494;
+}
+
+.export-button:active > * {
+    color: white;
+}
+
+
+.export-icon {
+    margin-right: 5px;
+    margin-bottom: -2px;
+}

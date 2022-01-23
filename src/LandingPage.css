@@ -2,10 +2,6 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-p {
-  color: darkslategray;
-}
-
 .welcome {
   flex: 0;
   display: flex;
@@ -38,7 +34,7 @@ p {
   }
 
   .divider {
-    border-top: solid slateblue 2px;
+    border-top: solid black 2px;
     width: 20vw;
     margin-block: 2vw;
     margin-bottom: 6vw;
@@ -52,7 +48,7 @@ p {
   }
   
   .divider {
-    border-left: solid #6e5494 2px;
+    border-left: solid black 2px;
     height: 20vh;
     margin-inline: 2vw;
   }
@@ -77,13 +73,9 @@ form {
 }
 
 label {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 input {
   margin-block-start: 5px;
-}
-
-button {
-  border: #6e5494;
 }
