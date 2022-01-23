@@ -20,19 +20,14 @@ export default class FooterEditor extends React.Component {
                 <div className="contact">
                     <a id="contact-section"></a>
                     <ul>
-                        <li><label>Email</label></li>
-                        <li>
-                            <textarea className='footer-textarea' defaultValue={userData["email"] == null ? '' : userData["email"]} 
+                        <li><textarea placeholder="Email" className='footer-textarea' defaultValue={userData["email"] == null ? '' : userData["email"]} 
                                 onChange={e => this.handleChange("email", e)} 
                                 spellCheck="false"></textarea></li>
                         <li><a href={("https://www.github.com/" + userData["login"])}>GitHub</a></li>
-                        <li><label>Twitter Handle</label></li>
-                        <li>
-                            <textarea className='footer-textarea' defaultValue={userData["twitter_username"] == null ? '' : userData["twitter_username"]} 
+                        <li><textarea placeholder="Twitter username" className='footer-textarea' defaultValue={userData["twitter_username"] == null ? '' : userData["twitter_username"]} 
                                 onChange={e => this.handleChange("twitter_username", e)} 
                                 spellCheck="false"></textarea></li>
-                        <li><label>LinkedIn</label></li>
-                        <li><textarea className='footer-textarea' defaultValue={userData["linkedin_url"] == null ? '' : userData["linkedin_url"]} 
+                        <li><textarea placeholder="LinkedIn URL" className='footer-textarea' defaultValue={userData["linkedin_url"] == null ? '' : userData["linkedin_url"]} 
                                 onChange={e => this.handleChange("linkedin_url", e)} 
                                 spellCheck="false"></textarea></li>
                     </ul>
