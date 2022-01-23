@@ -22,7 +22,7 @@ export default class HiddenCard extends React.Component {
                 <span className="subtitle">{project["created_at"].split("T")[0]}</span>
                 <p>{description}</p>
                 <div className="footer">
-                    <a href="https://github.com">Repository Link</a>
+                    <a href={project["html_url"]}>Repository Link</a>
                     <button className="reveal-button" onClick={this.unhideThisProject}>Unhide</button>
                 </div>
             </div>
