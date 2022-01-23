@@ -87,6 +87,7 @@ p, textarea {
 textarea {
     resize: none;
     border: 0;
+    flex-shrink: 0;
 }
 
 button {
@@ -110,8 +111,8 @@ a:hover {
 }
 
 .container {
-    margin-block: 10vh;
-    margin-bottom: 7vh;
+    margin-block: 7vh;
+    margin-bottom: 3vh;
     margin-left: auto;
     margin-right: auto;
     width: max(30rem, 90vw);
