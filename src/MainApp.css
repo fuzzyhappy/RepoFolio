@@ -111,5 +111,16 @@ textarea {
 }
 
 .hide-project-button {
+    margin-inline: 5px;
     margin-left: auto;
+    padding: auto;
+    padding-top: 5px;
+    border: none;
+    background: none;
 }
+
+.hide-project-button:hover {
+    background-color: lavender;
+    border-radius: 2px;
+}
+

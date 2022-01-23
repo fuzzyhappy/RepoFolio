@@ -1,5 +1,6 @@
 import React from 'react';
 import './MainApp.css'
+import { FaEyeSlash } from 'react-icons/fa';
 
 class Card extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class Card extends React.Component {
                     : <p>{description}</p>}
                 <div className="footer">
                     <a href={project["html_url"]}>Repository Link</a>
-                    {editable && <button className="hide-project-button">Hide</button>}
+                    {editable && <button className="hide-project-button"><FaEyeSlash /></button>}
                 </div>
             </div>
         );
