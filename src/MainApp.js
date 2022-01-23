@@ -5,6 +5,7 @@ import { IconContext } from "react-icons";
 import Card from './Card.js';
 import HiddenCard from './HiddenCard.js';
 import BioEditor from './BioEditor.js';
+import FooterEditor from './FooterEditor';
 
 export default class MainApp extends React.Component {
     constructor(props) {
@@ -140,15 +141,7 @@ export default class MainApp extends React.Component {
                     <BioEditor editable={editMode} userData={userData} updateUserField={this.updateUserField}/>
                 </div>
 
-                <div className="contact">
-                    <a id="contact-section"></a>
-                    <ul>
-                        <li><a href={userData["email"]}>Email</a></li>
-                        <li><a href={("https://www.github.com/" + userData["login"])}>GitHub</a></li>
-                        <li><a href={("https://www.twitter.com/" + userData["twitter_username"])}>Twitter</a></li>
-                        <li><a href="https://www.youtube.com/watch?v=jBuKNkVFaMU">LinkedIn</a></li>
-                    </ul>
-                </div>
+                <FooterEditor editable={editMode} userData={userData} updateUserField={this.updateUserField}/>
             </div>
         );
     }

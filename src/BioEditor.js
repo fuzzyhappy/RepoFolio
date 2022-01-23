@@ -5,11 +5,11 @@ export default class BioEditor extends React.Component {
         super(props);
         this.state = { userData: props.userData};
 
-        this.handleBioChange = this.handleBioChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleBioChange(e) {
-        this.props.updateUserField("bio", e.target.value)
+    handleChange(field, e) {
+        this.props.updateUserField(field, e.target.value)
     }
 
     render() {
@@ -18,7 +18,7 @@ export default class BioEditor extends React.Component {
         return (
             <div className="about-me-text">
             {editable
-                ? <textarea defaultValue={userData["bio"]} onChange={this.handleBioChange} spellCheck="false"></textarea>
+                ? <textarea defaultValue={userData["bio"]} onChange={e => this.handleChange("bio", e)} spellCheck="false"></textarea>
                 : <p>{userData["bio"]}</p>}
             </div>
         );
