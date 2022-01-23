@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainApp.css'
-import { FaEyeSlash } from 'react-icons/fa';
+import { FaEyeSlash, FaSave } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
 class Card extends React.Component {
@@ -71,7 +71,11 @@ export default class MainApp extends React.Component {
                 <div className="header">
                     <div className="pfp"></div>
                     <h1>{userData["name"]}</h1>
-                    <button onClick={this.exportPage}>Export</button>
+                    <button onClick={this.exportPage} className="export-button">
+                    <IconContext.Provider value={{ className: "export-icon" }}>
+                        <FaSave />
+                    </IconContext.Provider>
+                        <span>Export</span></button>
                     <ul className="navbar">
                         <li><a href="https://google.com">About</a></li>
                         <li><a href="https://google.com">Projects</a></li>
