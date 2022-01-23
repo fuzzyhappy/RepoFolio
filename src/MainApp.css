@@ -25,6 +25,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
+    border: solid black px;
 }
 
 h1 {
@@ -77,8 +78,9 @@ a {
 }
 
 p, textarea {
+    text-align: start;
     color: rgb(68, 68, 68);
-    flex: 1;
+    flex: 2 0 auto;
     padding: 5px;
     font-size: 18px;
     margin-top: 0;
@@ -114,12 +116,17 @@ a:hover {
 .container {
     margin-block: 7vh;
     margin-bottom: 3vh;
+
     margin-left: auto;
     margin-right: auto;
+
     width: max(30rem, 90vw);
+
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
+    min-height: 40vh;
+
     flex-grow: 1;
     justify-content: center;
 }
@@ -136,12 +143,17 @@ a:hover {
     border: solid black 2px;
 }
 
+.filler {
+    min-height: 6vh;
+    flex-grow: 2;
+}
+
 .about {
     margin-top: 1vh;
     background-color: #e5e7eb;
-    flex: 2;
     padding-block: 3em;
     padding-inline: 2vw;
+    flex-grow: 2;
 }
 
 .about-me {

@@ -112,6 +112,9 @@ export default class MainApp extends React.Component {
                         <li><a href="#contact-section">Contact</a></li>
                     </ul>
                 </div>
+
+                <div className='filler'></div>
+
                 <div className="container">
                     {visibleProjects.map((project, index) =>
                         <Card
@@ -128,6 +131,8 @@ export default class MainApp extends React.Component {
                             key={project["id"]}
                             onUnhideProject={this.unhideProject}/>)}
                 </div>}
+
+                <div className='filler'></div>
                 <div className="about" id="about-section">
                     <div className="about-me">
                     <a id="about-section"></a>About Me

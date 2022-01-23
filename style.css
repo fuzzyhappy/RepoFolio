@@ -9,14 +9,23 @@
     height: 30px;
     width: 30px;
     margin: 10px;
-    margin-left: 2vw;
+    flex-shrink: 0;
+    margin-left: 2em;
 }
 
 .header {
     background-color: black;
-    width: 100%;
     display: flex;
     align-items: center;
+}
+
+#root {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
 }
 
 h1 {
@@ -25,15 +34,12 @@ h1 {
 
 .navbar {
     padding: 5px;
-    margin-right: 2vw;
+    margin-right: 2em;
 }
 
 body {
-    height: 100vh;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0;
 }
 
 ul {
@@ -72,18 +78,28 @@ a {
 }
 
 p, textarea {
-    padding: 5px;
+    text-align: start;
+    color: rgb(68, 68, 68);
     flex: 1;
+    padding: 5px;
+    font-size: 18px;
+    margin-top: 0;
 }
 
 textarea {
     resize: none;
+    border: 0;
+    flex-shrink: 0;
+}
+
+button {
     border: 0;
 }
 
 .footer {
     border-top: solid black 2px;
     display: flex;
+    align-items: center;
     padding-block-start: 5px;
     padding-block-end: 7px;
     padding-inline: 5px;
@@ -94,12 +110,14 @@ textarea {
 }
 
 a:hover {
-    color: lavender;
+    text-decoration: underline;
 }
 
 .container {
-    margin-block: 10vh;
-    margin-bottom: 7vh;
+    margin-block: 7vh;
+    margin-bottom: 3vh;
+    margin-left: auto;
+    margin-right: auto;
     width: max(30rem, 90vw);
     flex-wrap: wrap;
     display: flex;
@@ -123,7 +141,6 @@ a:hover {
 .about {
     margin-top: 1vh;
     background-color: #e5e7eb;
-    flex: 2;
     padding-block: 3em;
     padding-inline: 2vw;
 }
@@ -135,7 +152,7 @@ a:hover {
     margin-inline: 15vw;
 }
 
-.text {
+.about-me-text {
     font-size: 20px;
     font-weight: 100;
     color:rgb(68, 68, 68);
@@ -147,14 +164,13 @@ a:hover {
     flex-direction: row;
     justify-content: center;
     background-color: black;
-    width: 100vw;
 }
 
 .contact > ul {
     margin-left: 0;
 }
 
-.hide-project-button {
+.card-button {
     margin-inline: 2px;
     margin-left: auto;
     padding: auto;
@@ -164,23 +180,17 @@ a:hover {
     border-radius: 2px;
 }
 
-.hide-project-button:hover {
-    background-color: lavender;
+.card-button:hover {
+    background-color: lightgray;
 }
 
-.hide-project-button:active {
-    background-color: #6e5494;
+.card-button:active {
+    background-color: darkgray;
 }
-
-.hide-project-button:active > .eye-icon {
-    color: white;
-}
-
 
 .export-button {
-    margin-inline: 15px;
+    margin-left: 1vw;
     size: 1em;
-    border: solid #6e5494 2px;
     background-color: white;
     border-radius: 6px;
     padding-block: 5px;
@@ -188,19 +198,44 @@ a:hover {
 }
 
 .export-button:hover {
-    background-color: lavender;
+    background-color: lightgray;
 }
 
 .export-button:active {
-    background-color: #6e5494;
+    background-color: darkgray;
 }
 
 .export-button:active > * {
-    color: white;
+    color: black;
 }
 
-
 .export-icon {
+    margin-right: 5px;
+    margin-bottom: -2px;
+}
+
+.work-button {
+    margin-left: .5vw;
+    size: 1em;
+    background-color: white;
+    border-radius: 6px;
+    padding-block: 5px;
+    padding-inline: 7px;
+}
+
+.work-button:hover {
+    background-color: lightgray;
+}
+
+.work-button:active {
+    background-color: darkgrey;
+}
+
+.work-button:active > * {
+    color: black;
+}
+
+.work-icon {
     margin-right: 5px;
     margin-bottom: -2px;
 }
@@ -218,7 +253,7 @@ a:hover {
 .annotation {
     background-color: darkgray;
     color: white;
-    padding-block: 3px;
+    padding-block: 5px;
     padding-inline: 10px;
 }
 
@@ -239,4 +274,9 @@ a:hover {
     border: none;
     background: none;
     border-radius: 2px;
+}
+
+.about textarea {
+    width: 70vw;
+    height: 7vh;
 }
