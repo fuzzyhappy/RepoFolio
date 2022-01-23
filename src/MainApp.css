@@ -169,7 +169,7 @@ a:hover {
     margin-left: 0;
 }
 
-.hide-project-button {
+.card-button {
     margin-inline: 2px;
     margin-left: auto;
     padding: auto;
@@ -179,11 +179,11 @@ a:hover {
     border-radius: 2px;
 }
 
-.hide-project-button:hover {
+.card-button:hover {
     background-color: lightgray;
 }
 
-.hide-project-button:active {
+.card-button:active {
     background-color: darkgray;
 }
 
@@ -252,7 +252,7 @@ a:hover {
 .annotation {
     background-color: darkgray;
     color: white;
-    padding-block: 3px;
+    padding-block: 5px;
     padding-inline: 10px;
 }
 
