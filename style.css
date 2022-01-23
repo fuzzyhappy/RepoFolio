@@ -23,10 +23,9 @@
 
 body {
     margin: 0;
-    height: 99vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 ul {
@@ -43,7 +42,6 @@ li {
 a {
     text-decoration: none;
 }
-
 
 .title {
     padding: 10px;
@@ -83,8 +81,12 @@ textarea {
     color: black;
 }
 
+a:hover {
+    color: lavender;
+}
+
 .container {
-    margin-block: 20px;
+    margin-block: 10vh;
     width: max(30rem, 90vw);
     flex-wrap: wrap;
     display: flex;
@@ -106,29 +108,6 @@ textarea {
     border: solid#6e5494 2px;
     box-shadow: 1rem 1rem lavender;
 
-}
-
-.hide-project-button {
-    margin-inline: 2px;
-    margin-left: auto;
-    padding: auto;
-    padding-top: 5px;
-    border: none;
-    background: none;
-}
-
-.hide-project-button:hover {
-    background-color: lavender;
-    border-radius: 2px;
-}
-
-.hide-project-button:active {
-    background-color: #6e5494;
-    border-radius: 2px;
-}
-
-.hide-project-button:active > .eye-icon {
-    color: white;
 }
 
 
