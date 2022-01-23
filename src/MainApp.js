@@ -1,74 +1,32 @@
 import React from 'react';
 import './MainApp.css'
-import { FaEyeSlash, FaSave, FaPencilRuler } from 'react-icons/fa';
+import { FaSave, FaPencilRuler } from 'react-icons/fa';
 import { IconContext } from "react-icons";
-
-class Card extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { editable: props.editable, project: props.project, fileDownloadUrl: null }
-
-        this.hideThisProject = this.hideThisProject.bind(this);
-        this.handleDescChange = this.handleDescChange.bind(this);
-    }
-
-    hideThisProject() {
-        this.props.onHideProject(this.state.project["id"]);
-    }
-
-    handleDescChange(e) {
-        this.props.updateField("description", e.target.value, this.state.project["id"])
-    }
-
-    render() {
-        const editable = this.state.editable;
-        const project = this.state.project;
-        const description = project["description"] == null ? '' : project["description"];
-        return (
-            <div className="card">
-                <span className="title">{project["name"]}</span>
-                <span className="subtitle">{project["created_at"].split("T")[0]}</span>
-                {editable
-                    ? <textarea defaultValue={description} onChange={this.handleDescChange} spellCheck="false"></textarea>
-                    : <p>{description}</p>}
-                <div className="footer">
-                    <a href={project["html_url"]}>Repository Link</a>
-                    {editable && <button className="hide-project-button" onClick={this.hideThisProject}>
-                        <IconContext.Provider value={{ className: "eye-icon" }}>
-                            <FaEyeSlash />
-                        </IconContext.Provider>
-                    </button>}
-                </div>
-            </div>
-        );
-    }
-}
+import Card from './Card.js';
+import HiddenCard from './HiddenCard.js';
+import BioEditor from './BioEditor.js';
 
 export default class MainApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             userData: props.userData,
-            visibleProjects: props.repoData.map(project => {
-                var newProject = project;
-                newProject['refreshDecider'] = newProject["id"] + Date.now();
-                console.log(newProject["created_at"]);
-                return newProject;
-            }),
+            visibleProjects: props.repoData,
             hiddenProjects: [],
             editMode: true
         };
 
         this.exportPage = this.exportPage.bind(this);
         this.hideProject = this.hideProject.bind(this);
-        this.updateField = this.updateField.bind(this);
+        this.updateProjectField = this.updateProjectField.bind(this);
+        this.updateUserField = this.updateUserField.bind(this);
         this.doPreviewMode = this.doPreviewMode.bind(this);
         this.doEditMode = this.doEditMode.bind(this);
     }
 
     // We need onChange from the textareas to update data inside MainApp (basically, every keystroke)
-    // this setState doesn't refresh the cards because their refreshDecider doesn't change! 
-    updateField(fieldname, content, id) {
+    // this setState doesn't refresh the cards because Card ignores it (see Card.js for details)
+    updateProjectField(fieldname, content, id) {
         const newList = this.state.visibleProjects.map(project => {
             if (project["id"] === id) {
                 var newProject = project;
@@ -79,6 +37,12 @@ export default class MainApp extends React.Component {
             }
         })
         this.setState({ visibleProjects: newList });
+    }
+
+    updateUserField(fieldname, content) {
+        const newUserData = this.state.userData;
+        newUserData[fieldname] = content;
+        this.setState({ userData: newUserData });
     }
 
     exportPage(e) {
@@ -100,31 +64,25 @@ export default class MainApp extends React.Component {
         this.setState({ visibleProjects: this.state.visibleProjects.filter((project, index) => index !== idx) });
     }
 
-    // by updating the refreshDecider of the whole visibleProjects, we force a refresh since .map assigns key based on refreshDecider
+    unhideProject(id){
+        const idx = this.state.hiddenProjects.findIndex(project => project["id"] === id)
+        this.setState({ visibleProjects: [...this.state.visibleProjects, this.state.hiddenProjects[idx]] });
+        this.setState({ hiddenProjects: this.state.hiddenProjects.filter((project, index) => index !== idx) });
+    }
+
     doPreviewMode() {
         this.setState({ editMode: false });
-        this.setState({
-            visibleProjects: this.state.visibleProjects.map(project => {
-                var newProject = project;
-                newProject["refreshDecider"] = newProject["id"] + Date.now();
-                return newProject;
-            })
-        });
     }
+
     doEditMode() {
         this.setState({ editMode: true });
-        this.setState({
-            visibleProjects: this.state.visibleProjects.map(project => {
-                var newProject = project;
-                newProject["refreshDecider"] = newProject["id"] + Date.now();
-                return newProject;
-            })
-        });
     }
 
     render() {
+        console.log(this.state);
         var userData = this.state.userData;
         var visibleProjects = this.state.visibleProjects;
+        var hiddenProjects = this.state.hiddenProjects;
         var editMode = this.state.editMode;
 
         return (
@@ -157,33 +115,38 @@ export default class MainApp extends React.Component {
                     {visibleProjects.map((project, index) =>
                         <Card
                             project={project}
-                            key={project["refreshDecider"]}
+                            key={project["id"]}
                             editable={editMode}
                             onHideProject={this.hideProject}
-                            updateField={this.updateField} />)}
+                            updateProjectField={this.updateProjectField} />)}
                 </div>
-                <div class="about">
-                    <div class="about-me">
+                <div className="hidden container">
+                    {hiddenProjects.map((project, index) =>
+                        <HiddenCard
+                            project={project}
+                            key={project["id"]}
+                            onUnhideProject={this.unhideProject}/>)}
+                </div>
+                <div className="about">
+                    <div className="about-me">
                         About Me
                     </div>
-                    <div class="text">
-                        lorem ipsum :)
-                    </div>
+                    <BioEditor editable={editMode} userData={userData} updateUserField={this.updateUserField}/>
                 </div>
-                <div class="contact">
+                <div className="contact">
 
                 </div>
 
-                <div class="contact">
+                <div className="contact">
                     <ul>
                         <li><a href={userData["email"]}>Email</a></li>
-                        <li><a href={new String("https://www.github.com/" + userData["login"])}>GitHub</a></li>
-                        <li><a href={new String("https://www.twitter.com/" + userData["twitter_username"])}>Twitter</a></li>
+                        <li><a href={("https://www.github.com/" + userData["login"])}>GitHub</a></li>
+                        <li><a href={("https://www.twitter.com/" + userData["twitter_username"])}>Twitter</a></li>
                         <li><a href="https://www.youtube.com/watch?v=jBuKNkVFaMU">LinkedIn</a></li>
                     </ul>
                 </div>
 
-                <div class="contact"></div>
+                <div className="contact"></div>
             </div>
         );
     }
