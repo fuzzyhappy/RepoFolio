@@ -50,7 +50,7 @@ export default class LandingPage extends React.Component {
                             Try it out by entering your username!
                         </label>
                         <input type="text" value={this.state.uname} onChange={this.handleChange} />
-                        <input type="submit" value="Submit" />
+                        <input className="button" type="submit" value="Submit" />
                     </form>
                     {!this.state.valid && <p className="usernameError">An error occured, please try again.</p>}
                 </div>

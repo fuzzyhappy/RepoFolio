@@ -79,3 +79,13 @@ label {
 input {
   margin-block-start: 5px;
 }
+
+.button {
+  border: solid black 1px;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.button:hover {
+  background-color: #e5e7eb;
+}
