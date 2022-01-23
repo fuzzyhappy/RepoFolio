@@ -6,7 +6,8 @@ import { IconContext } from "react-icons";
 class Card extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { editable: true, project: props.project, fileDownloadUrl: null }
+        console.log(props.editable); 
+        this.state = { editable: props.editable, project: props.project, fileDownloadUrl: null }
 
         this.hideThisProject = this.hideThisProject.bind(this);
     }
@@ -45,11 +46,14 @@ export default class MainApp extends React.Component {
         this.state = {
             userData: props.userData,
             visibleProjects: props.repoData,
-            hiddenProjects: []
+            hiddenProjects: [],
+            editMode: true
         };
 
         this.exportPage = this.exportPage.bind(this);
         this.hideProject = this.hideProject.bind(this);
+        this.doPreviewMode = this.doPreviewMode.bind(this);
+        this.doEditMode = this.doEditMode.bind(this);
     }
 
     exportPage(e) {
@@ -72,9 +76,15 @@ export default class MainApp extends React.Component {
         this.setState((state, props) => ({visibleProjects: state.visibleProjects.filter((project, index) => index != idx) }));
     }
 
+    doPreviewMode() { this.setState({editMode: false}); }
+    doEditMode() { this.setState((state, props) => ({editMode: true})); }
+
     render() {
         var userData = this.state.userData;
         var visibleProjects = this.state.visibleProjects;
+        var editMode = this.state.editMode;
+        console.log(editMode);
+
         return (
             <div>
                 <a style={{ display: "none" }}
@@ -90,6 +100,7 @@ export default class MainApp extends React.Component {
                         <FaSave />
                     </IconContext.Provider>
                         <span>Export</span></button>
+                    <button onClick={editMode ? this.doPreviewMode : this.doEditMode}>{editMode ? "Edit Mode" : "Preview Mode"}</button>
                     <ul className="navbar">
                         <li><a href="https://google.com">About</a></li>
                         <li><a href="https://google.com">Projects</a></li>
@@ -97,7 +108,7 @@ export default class MainApp extends React.Component {
                 </div>
                 <div className="container">
                     {visibleProjects.map((project, index) => 
-                        <Card project={project} key={project["name"]} idx={index} onHideProject={this.hideProject} />)}
+                        <Card project={project} key={project["id"] + Date.now()} idx={index} editable={editMode} onHideProject={this.hideProject} />)}
                 </div>
             </div>
         );
