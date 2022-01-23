@@ -81,7 +81,6 @@ export default class MainApp extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         var userData = this.state.userData;
         var visibleProjects = this.state.visibleProjects;
         var hiddenProjects = this.state.hiddenProjects;
