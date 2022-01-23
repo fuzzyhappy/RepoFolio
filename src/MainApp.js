@@ -18,7 +18,7 @@ class Card extends React.Component {
                 <span className="title">{project["name"]}</span>
                 <span className="subtitle">{project["created_at"].split("T")[0]}</span>
                 {editable
-                    ? <textarea defaultValue={description} spellcheck="false"></textarea>
+                    ? <textarea defaultValue={description} spellCheck="false"></textarea>
                     : <p>{description}</p>}
                 <div className="footer">
                     <a href={project["html_url"]}>Repository Link</a>
