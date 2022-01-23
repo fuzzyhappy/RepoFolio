@@ -7,6 +7,12 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = { editable: true, project: props.project, fileDownloadUrl: null }
+
+        this.hideThisProject = this.hideThisProject.bind(this);
+    }
+
+    hideThisProject() {
+        this.props.onHideProject(this.props.idx);
     }
 
     render() {
@@ -18,15 +24,15 @@ class Card extends React.Component {
                 <span className="title">{project["name"]}</span>
                 <span className="subtitle">{project["created_at"].split("T")[0]}</span>
                 {editable
-                    ? <textarea defaultValue={description} spellcheck="false"></textarea>
+                    ? <textarea defaultValue={description} spellCheck="false"></textarea>
                     : <p>{description}</p>}
                 <div className="footer">
                     <a href={project["html_url"]}>Repository Link</a>
-                    {editable && <button className="hide-project-button"> 
-                    <IconContext.Provider value={{ className: "eye-icon" }}>
-                        <FaEyeSlash />
-                    </IconContext.Provider>
-                    </button>}
+                    {editable && <button className="hide-project-button" onClick={this.hideThisProject}> 
+                        <IconContext.Provider value={{ className: "eye-icon" }}>
+                            <FaEyeSlash />
+                        </IconContext.Provider>
+                        </button>}
                 </div>
             </div>
         );
@@ -38,10 +44,12 @@ export default class MainApp extends React.Component {
         super(props);
         this.state = {
             userData: props.userData,
-            projectData: props.repoData.map(project => [true, project])
+            visibleProjects: props.repoData,
+            hiddenProjects: []
         };
 
         this.exportPage = this.exportPage.bind(this);
+        this.hideProject = this.hideProject.bind(this);
     }
 
     exportPage(e) {
@@ -57,10 +65,16 @@ export default class MainApp extends React.Component {
             })
     }
 
+    // hides visibleProjects[idx], which may be a weird order compared to the original props.repoData
+    // this is because the child Card calls this function by supplying their ID.
+    hideProject(idx) {
+        this.setState((state, props) => ({hiddenProjects: [...state.hiddenProjects, state.visibleProjects[idx]]}));
+        this.setState((state, props) => ({visibleProjects: state.visibleProjects.filter((project, index) => index != idx) }));
+    }
+
     render() {
-        const userData = this.state.userData;
-        const projectData = this.state.projectData;
-        const visibleProjects = projectData.map(([visible, project]) => (visible && project));
+        var userData = this.state.userData;
+        var visibleProjects = this.state.visibleProjects;
         return (
             <div>
                 <a style={{ display: "none" }}
@@ -80,12 +94,10 @@ export default class MainApp extends React.Component {
                         <li><a href="https://google.com">About</a></li>
                         <li><a href="https://google.com">Projects</a></li>
                     </ul>
-
                 </div>
                 <div className="container">
-                    {visibleProjects.map((project, index) =>
-                        <Card project={project} key={index} onHideProject={this.hideProject} />
-                    )}
+                    {visibleProjects.map((project, index) => 
+                        <Card project={project} key={project["name"]} idx={index} onHideProject={this.hideProject} />)}
                 </div>
             </div>
         );
