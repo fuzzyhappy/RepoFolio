@@ -49,15 +49,26 @@ export default class MainApp extends React.Component {
 
     exportPage(e) {
         e.preventDefault();
-        const output = new XMLSerializer().serializeToString(document);
-        const blob = new Blob([output]);
-        const fileDownloadUrl = URL.createObjectURL(blob);
-        this.setState({ fileDownloadUrl: fileDownloadUrl },
-            () => {
-                this.dofileDownload.click();
-                URL.revokeObjectURL(fileDownloadUrl);
-                this.setState({ fileDownloadUrl: "" })
-            })
+        this.setState(
+            {editMode: false}, () => {
+                const output = document.documentElement.outerHTML;
+                const parser = new DOMParser();
+                const parsedDoc = parser.parseFromString(output, 'text/html');
+                const workButton = parsedDoc.getElementById("work-button");
+                workButton.remove();
+                const exportButton = parsedDoc.getElementById("export-button");
+                exportButton.remove();
+                const blob = new Blob([parsedDoc.documentElement.outerHTML]);
+                const fileDownloadUrl = URL.createObjectURL(blob);
+                this.setState({ fileDownloadUrl: fileDownloadUrl },
+                    () => {
+                        this.dofileDownload.click();
+                        URL.revokeObjectURL(fileDownloadUrl);
+                        this.setState({ fileDownloadUrl: "" })
+                    })
+            }
+        );
+
     }
 
     hideProject(id) {
@@ -96,12 +107,12 @@ export default class MainApp extends React.Component {
                 <div className="header">
                     <img src={userData["avatar_url"]} className="pfp"/>
                     <h1>{userData["name"]}</h1>
-                    <button onClick={this.exportPage} className="export-button">
+                    <button id="export-button" onClick={this.exportPage} className="export-button">
                         <IconContext.Provider value={{ className: "export-icon" }}>
                             <FaSave />
                         </IconContext.Provider>
                         <span>Export</span></button>
-                    <button className="work-button" onClick={editMode ? this.doPreviewMode : this.doEditMode}>
+                    <button id="work-button" className="work-button" onClick={editMode ? this.doPreviewMode : this.doEditMode}>
                         <IconContext.Provider value={{ className: "work-icon" }}>
                             <FaPencilRuler />
                         </IconContext.Provider>
