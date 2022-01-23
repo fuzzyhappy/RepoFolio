@@ -204,3 +204,39 @@ a:hover {
     margin-right: 5px;
     margin-bottom: -2px;
 }
+
+.hidden * {
+    border-color: gray;
+    color: gray;
+}
+
+.hidden .title {
+    background-color: darkgray;
+    color: white;
+} 
+
+.annotation {
+    background-color: darkgray;
+    color: white;
+    padding-block: 3px;
+    padding-inline: 10px;
+}
+
+.hidden a {
+    color: gray;
+}
+
+.hidden .container {
+    margin: 0;
+    padding: 0;
+}
+
+.reveal-button {
+    margin-inline: 2px;
+    margin-left: auto;
+    padding: auto;
+    padding-top: 5px;
+    border: none;
+    background: none;
+    border-radius: 2px;
+}
