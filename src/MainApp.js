@@ -18,6 +18,7 @@ export default class MainApp extends React.Component {
 
         this.exportPage = this.exportPage.bind(this);
         this.hideProject = this.hideProject.bind(this);
+        this.unhideProject = this.unhideProject.bind(this);
         this.updateProjectField = this.updateProjectField.bind(this);
         this.updateUserField = this.updateUserField.bind(this);
         this.doPreviewMode = this.doPreviewMode.bind(this);
@@ -93,7 +94,7 @@ export default class MainApp extends React.Component {
                     ref={e => this.dofileDownload = e} />
 
                 <div className="header">
-                    <div className="pfp"></div>
+                    <img src={userData["avatar_url"]} className="pfp"/>
                     <h1>{userData["name"]}</h1>
                     <button onClick={this.exportPage} className="export-button">
                         <IconContext.Provider value={{ className: "export-icon" }}>
@@ -120,13 +121,13 @@ export default class MainApp extends React.Component {
                             onHideProject={this.hideProject}
                             updateProjectField={this.updateProjectField} />)}
                 </div>
-                <div className="hidden container">
+                {hiddenProjects.length > 0 && <div className="hidden container">
                     {hiddenProjects.map((project, index) =>
                         <HiddenCard
                             project={project}
                             key={project["id"]}
                             onUnhideProject={this.unhideProject}/>)}
-                </div>
+                </div>}
                 <div className="about">
                     <div className="about-me">
                         About Me
