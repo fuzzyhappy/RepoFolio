@@ -97,6 +97,7 @@ button {
 .footer {
     border-top: solid black 2px;
     display: flex;
+    align-items: center;
     padding-block-start: 5px;
     padding-block-end: 7px;
     padding-inline: 5px;
@@ -272,4 +273,9 @@ a:hover {
     border: none;
     background: none;
     border-radius: 2px;
+}
+
+.about textarea {
+    width: 70vw;
+    height: 7vh;
 }
