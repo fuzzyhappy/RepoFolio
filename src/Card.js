@@ -36,7 +36,7 @@ export default class Card extends React.Component {
                     : <p>{description}</p>}
                 <div className="footer">
                     <a href={project["html_url"]}>Repository Link</a>
-                    {editable && <button className="hide-project-button" onClick={this.hideThisProject}>
+                    {editable && <button className="card-button" onClick={this.hideThisProject}>
                         <IconContext.Provider value={{ className: "eye-icon" }}>
                             <FaEyeSlash />
                         </IconContext.Provider>
