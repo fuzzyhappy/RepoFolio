@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainApp.css'
 import { FaEyeSlash } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 class Card extends React.Component {
     constructor(props) {
@@ -17,11 +18,15 @@ class Card extends React.Component {
                 <span className="title">{project["name"]}</span>
                 <span className="subtitle">{project["created_at"].split("T")[0]}</span>
                 {editable
-                    ? <textarea defaultValue={description}></textarea>
+                    ? <textarea defaultValue={description} spellcheck="false"></textarea>
                     : <p>{description}</p>}
                 <div className="footer">
                     <a href={project["html_url"]}>Repository Link</a>
-                    {editable && <button className="hide-project-button"><FaEyeSlash /></button>}
+                    {editable && <button className="hide-project-button"> 
+                    <IconContext.Provider value={{ className: "eye-icon" }}>
+                        <FaEyeSlash />
+                    </IconContext.Provider>
+                    </button>}
                 </div>
             </div>
         );

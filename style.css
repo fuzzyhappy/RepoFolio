@@ -3,8 +3,8 @@
 }
 
 .pfp {
-    background: slateblue;
-    border: border slateblue 2px;
+    background:#6e5494;
+    border: border#6e5494 2px;
     border-radius: 25%;
     height: 30px;
     width: 30px;
@@ -46,11 +46,8 @@ a {
 
 
 .title {
-    padding-block-start: 5px;
-    padding-block-end: 7px;
-    padding-inline: 5px;
-    background-color: slateblue;
-    color: white;
+    padding: 10px;
+    color: black;
     font-weight: bold;
     font-size: 30px;
     word-break: break-word;
@@ -59,30 +56,36 @@ a {
 .subtitle {
     padding-block: 5px;
     padding-inline: 5px;
-    color: slateblue;
+    border-top: solid#6e5494 2px;
+    border-bottom: solid#6e5494 2px;
+    color:#6e5494;
     font-weight: 100;
 }
 
-p {
+p, textarea {
     padding: 5px;
     flex: 1;
 }
 
+textarea {
+    resize: none;
+    border: 0;
+}
+
 .footer {
+    display: flex;
     padding-block-start: 5px;
     padding-block-end: 7px;
     padding-inline: 5px;
-    background-color: slateblue;
 }
 
 .footer > a {
-    
-    color: white;
+    color: black;
 }
 
 .container {
     margin-block: 20px;
-    width: max(16rem, 80vw);
+    width: max(30rem, 90vw);
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
@@ -98,9 +101,34 @@ p {
     width: 16rem;
     margin-inline: 1rem;
     margin-bottom: 3rem;
+    
 
-    border: solid slateblue 2px;
+    border: solid#6e5494 2px;
     box-shadow: 1rem 1rem lavender;
 
 }
+
+.hide-project-button {
+    margin-inline: 2px;
+    margin-left: auto;
+    padding: auto;
+    padding-top: 5px;
+    border: none;
+    background: none;
+}
+
+.hide-project-button:hover {
+    background-color: lavender;
+    border-radius: 2px;
+}
+
+.hide-project-button:active {
+    background-color: #6e5494;
+    border-radius: 2px;
+}
+
+.hide-project-button:active > .eye-icon {
+    color: white;
+}
+
 
