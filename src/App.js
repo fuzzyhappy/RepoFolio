@@ -14,8 +14,6 @@ class App extends React.Component {
     unameSubmitSuccess(recvUserData, recvRepoData) {
         this.setState({userData: recvUserData});
         this.setState({repoData: recvRepoData});
-        console.log(this.state.userData);
-        console.log(this.state.repoData);
         this.setState({unameSubmitted: true});
     }
 

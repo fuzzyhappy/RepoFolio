@@ -23,7 +23,6 @@ export default class LandingPage extends React.Component {
             .then((res) => { repoData = res["data"]; })
             .then(() => { this.props.onUsernameSubmit(userData, repoData) })
             .catch(e => {
-                console.log("error!");
                 console.log(e);
                 this.setState({ valid: false });
             });
