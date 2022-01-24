@@ -46,7 +46,7 @@ export default class LandingPage extends React.Component {
                 <div className="modal-content">
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Try it out by entering your username!
+                            Try it out by entering your GitHub username!
                         </label>
                         <input type="text" value={this.state.uname} onChange={this.handleChange} />
                         <input className="button" type="submit" value="Submit" />
