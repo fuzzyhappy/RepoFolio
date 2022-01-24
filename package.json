@@ -13,6 +13,7 @@
     "website"
   ],
   "author": "Evan Wang",
+  "contributors": ["Daniel Xie"],
   "dependencies": {
     "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.1",
