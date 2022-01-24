@@ -154,6 +154,7 @@ a:hover {
     padding-block: 3em;
     padding-inline: 2vw;
     flex-grow: 2;
+    min-height: 10vh;
 }
 
 .about-me {
