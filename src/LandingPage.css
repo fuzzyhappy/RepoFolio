@@ -25,6 +25,10 @@
     width: 50vw;
   }
 
+  .first {
+    width: 70vw;
+  }
+
   .modal {
     flex-direction: column;
   }
@@ -33,8 +37,12 @@
     align-items: center;
   }
 
-  .first, .Logo, p {
+  .first, .Logo, p, form {
     text-align: center;
+  }
+
+  form {
+    width: 55vw;
   }
 
   .divider {
