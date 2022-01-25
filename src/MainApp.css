@@ -121,7 +121,7 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
 
-    width: max(30rem, 90vw);
+    width: 90vw;
 
     flex-wrap: wrap;
     display: flex;
