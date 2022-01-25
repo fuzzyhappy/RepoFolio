@@ -2,7 +2,7 @@
   "name": "repofolio",
   "version": "1.0.0",
   "homepage": "https://fuzzyhappy.github.io/repofolio",
-  "description": "JavaScript application that creates a portfolio website based off your GitHub profile.",
+  "description": "React wen application that creates a portfolio website based off your GitHub profile.",
   "main": "index.js",
   "keywords": [
     "JavaScript",
