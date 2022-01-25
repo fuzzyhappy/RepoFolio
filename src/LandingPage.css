@@ -21,6 +21,10 @@
 
 
 @media (max-width:1000px) {
+  .welcome {
+    width: 50vw;
+  }
+
   .modal {
     flex-direction: column;
   }
