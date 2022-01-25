@@ -111,12 +111,12 @@ export default class MainApp extends React.Component {
                         <IconContext.Provider value={{ className: "export-icon" }}>
                             <FaSave />
                         </IconContext.Provider>
-                        <span>Export</span></button>
+                        Export</button>
                     <button id="work-button" className="work-button" onClick={editMode ? this.doPreviewMode : this.doEditMode}>
                         <IconContext.Provider value={{ className: "work-icon" }}>
                             <FaPencilRuler />
                         </IconContext.Provider>
-                        {editMode ? "Edit Mode" : "View Mode"}
+                        {editMode? "Edit Mode" : "View Mode"}
                     </button>
                     <ul className="navbar">
                         <li><a href="#about-section">About</a></li>
